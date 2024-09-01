@@ -36,4 +36,40 @@
 }
 
 dialog{
+    margin: auto;
+    width: min(100%, 500px);
+}
+
+form>div{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    justify-content: center;
+}
+
+form>h1{
+    margin: auto;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+
+button{
+    cursor:pointer;
+}
+
+#submit{
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+#submit:hover{
+    background-color: rgb(65, 63, 63);
+    color: white;
 }
