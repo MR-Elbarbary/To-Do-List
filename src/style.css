@@ -2,6 +2,8 @@
     font-family: Helvetica, sans-serif, Arial;
     line-height: 1.5;
     margin: 0px;
+
+    --bg1: rgb(65, 63, 63);
 }
 
 .container{
@@ -11,7 +13,8 @@
 }
 
 .leftPart{
-    background-color: rgb(65, 63, 63);
+    padding: 10% 10%;
+    background-color: var(--bg1);
     color: white;
     grid-row: 1 / span 2;
     grid-column: 1 / 2;
@@ -48,7 +51,7 @@ form>div{
     justify-content: center;
 }
 
-form>h1{
+h1{
     margin: auto;
 }
 
@@ -61,7 +64,11 @@ button{
     cursor:pointer;
 }
 
-#submit{
+form>button{
+    margin:0px auto 0px auto;
+}
+
+#submit, #newTask, #create{
     margin-left: auto;
     margin-right: auto;
     padding: 0.8rem 1.2rem;
@@ -69,7 +76,21 @@ button{
     border: 2px solid black;
 }
 
-#submit:hover{
-    background-color: rgb(65, 63, 63);
+#submit:hover, #newTask:hover{
+    background-color: var(--bg1);
     color: white;
+}
+
+.project{
+    font-size: 1.2rem;
+    padding: 0.4rem 1.2rem;
+    border-radius: 10px;
+    border: none;
+    background-color: var(--bg1);
+    color: white;
+}
+
+.project:hover{
+    color: black;
+    background: white;
 }
