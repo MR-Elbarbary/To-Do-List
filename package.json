@@ -9,6 +9,9 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "To-Do-List": "file:"
+  },
   "devDependencies": {
     "css-loader": "^7.1.2",
     "html-loader": "^5.1.0",
