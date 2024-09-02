@@ -1,3 +1,5 @@
+import { createTask } from "./task";
+
 export class project {
     constructor(name) {
         this.name = name;
@@ -17,12 +19,16 @@ export function createProjectBtn(project, index, updateCurrProject) {
     projectBtn.classList.add("project");
     projectBtn.setAttribute("value", index);
     projectBtn.addEventListener("click", ()=>{
-        let tasks = document.querySelector(".tasks");
-        tasks.innerHTML = "";
-        project.tasks.forEach(task => {
-            tasks.appendChild(createTask(task));
-        });
+        renderTasks(project);
         updateCurrProject(project);
     });
     return projectBtn
+}
+
+export function renderTasks(project) {
+    let tasks = document.querySelector(".tasks");
+        tasks.innerHTML = "";
+        project.tasks.forEach(task => {
+            tasks.appendChild(createTask(task, project));
+        });
 }

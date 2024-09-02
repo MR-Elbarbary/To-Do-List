@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     projects.push(defaultBtn);
     let newTaskBtn = document.getElementById("newTask");
     let leftPart = document.querySelector(".leftPart");
-    let newTaskForm = document.querySelector("dialog");
+    let newTaskForm = document.getElementById("createTask");
     let tasks = document.querySelector(".tasks");
     let newTask = document.getElementById("submit");
     let newProjectBtn = document.getElementById("create");
@@ -30,7 +30,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     newTask.addEventListener("click",()=>{
         let task = createTaskObj();
         currProject.addTask(task);
-        tasks.appendChild(createTask(task));
+        tasks.appendChild(createTask(task, currProject));
+        newTaskForm.close();
     });
 });
 

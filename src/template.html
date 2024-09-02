@@ -27,16 +27,18 @@
         </div>
     </div>
 
-    <dialog>
+    <dialog class="showTask"></dialog>
+
+    <dialog id="createTask">
         <form action="">
             <h1>Task</h1>
             <div>
                 <label for="title">title</label>
-                <input name="title" id="title" type="text">
+                <input required name="title" id="title" type="text">
             </div>
             <div>
                 <label for="description">description</label>
-                <input name="description" id="description" type="text">
+                <input required name="description" id="description" type="text">
             </div>
             <div>
                 <label for="notes">notes</label>
@@ -48,7 +50,7 @@
             </div>
             <div>
                 <label for="priority">priority</label>
-                <select name="priority" id="priority">
+                <select required name="priority" id="priority">
                     <option value="high">High</option>
                     <option value="mid">Medium</option>
                     <option value="low">Low</option>
