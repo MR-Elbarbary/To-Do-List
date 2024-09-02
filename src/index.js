@@ -2,14 +2,26 @@ import { project } from "./project";
 import "./style.css";
 import { task } from "./task";
 
-let projects = [new project("default")];
-let currProject = projects[0];
+let projects = [];
+let currProject;
 
 document.addEventListener("DOMContentLoaded",()=>{
+    let defaultBtn = new project("default");
+    currProject = defaultBtn;
+    createProjectBtn(defaultBtn, 0);
+    projects.push(defaultBtn);
     let newTaskBtn = document.getElementById("newTask");
+    let leftPart = document.getElementById("leftPart");
     let newTaskForm = document.querySelector("dialog");
     let tasks = document.querySelector(".tasks");
     let newTask = document.getElementById("submit");
+    let newProjectBtn = document.getElementById("create");
+    newProjectBtn.addEventListener("click", ()=>{
+        let name = document.getElementById("newProject").value;
+        let newProject = new project(name);
+        createProjectBtn(newProject, projects.length);
+        projects.push(newProject);
+    });
     newTaskBtn.addEventListener("click", ()=>{
         newTaskForm.showModal();
     });
@@ -56,4 +68,21 @@ function createTask(task){
     taskDiv.appendChild(div1);
     taskDiv.appendChild(div2);
     return taskDiv
+}
+
+function createProjectBtn(project, index) {
+    let projectBtn = document.createElement("button");
+    projectBtn.textContent = project.name;
+    projectBtn.classList.add("project");
+    projectBtn.setAttribute("value", index);
+    projectBtn.addEventListener("click", ()=>{
+        let tasks = document.querySelector(".tasks");
+        tasks.innerHTML = "";
+        project.tasks.forEach(task => {
+            tasks.appendChild(createTask(task));
+        });
+        currProject = project;
+    });
+    let leftPart = document.querySelector(".leftPart");
+    leftPart.appendChild(projectBtn);
 }
