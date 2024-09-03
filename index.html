@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+<script defer src="main.js"></script></head>
+<body>
+    <div class="container">
+        <div class="leftPart">
+            <h1>Projects</h1>
+            <div>
+                <form action="">
+                    <div>
+                        <label for="newProject">New Project</label>
+                        <input name="newProject" id="newProject" type="text">
+                    </div>
+                    <button type="button" id="create">Create</button>
+                </form>
+            </div>
+        </div>
+        <div class="heading">
+            <h1>Default</h1>
+            <button id="newTask">New Task</button>
+        </div>
+        <div class="tasks">
+        </div>
+    </div>
+
+    <dialog>
+        <form action="">
+            <h1>Task</h1>
+            <div>
+                <label for="title">title</label>
+                <input name="title" id="title" type="text">
+            </div>
+            <div>
+                <label for="description">description</label>
+                <input name="description" id="description" type="text">
+            </div>
+            <div>
+                <label for="notes">notes</label>
+                <input name="notes" id="notes" type="text">
+            </div>
+            <div>
+                <label for="dueDate">dueDate</label>
+                <input name="dueDate" id="dueDate" type="datetime-local">
+            </div>
+            <div>
+                <label for="priority">priority</label>
+                <select name="priority" id="priority">
+                    <option value="high">High</option>
+                    <option value="mid">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
+            <button type="button" id="submit">Submit</button>
+        </form>
+    </dialog>
+</body>
+</html>
