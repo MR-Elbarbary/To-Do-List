@@ -8,7 +8,7 @@ let currProject;
 document.addEventListener("DOMContentLoaded",()=>{
     let defaultProj = new project("default");
     currProject = defaultProj;
-    let defaultBtn = createProjectBtn(defaultProj, 0);
+    let defaultBtn = createProjectBtn(defaultProj, 0, (newProject)=> currProject = newProject);
     projects.push(defaultProj);
     let newTaskBtn = document.getElementById("newTask");
     let leftPart = document.querySelector(".leftPart");

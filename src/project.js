@@ -19,6 +19,8 @@ export function createProjectBtn(project, index, updateCurrProject) {
     projectBtn.classList.add("project");
     projectBtn.setAttribute("value", index);
     projectBtn.addEventListener("click", ()=>{
+        let title = document.querySelector(".heading h1");
+        title.textContent = project.name;
         renderTasks(project);
         updateCurrProject(project);
     });
