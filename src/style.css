@@ -39,7 +39,8 @@ input{
     border-color: var(--bg1);
 }
 
-.heading.h1{
+.heading h1{
+    margin: 20px 0px 10px 0px;
 }
 
 .heading>button{
