@@ -16,12 +16,12 @@ export function createTask(task, project){
     taskDiv.classList.add("task");
     taskDiv.setAttribute("data-index", index);
     let div1 = document.createElement('div');
-    let h2 = document.createElement('h2');
-    h2.textContent = task.title;
-    let p = document.createElement('p');
-    p.textContent = task.dueDate;
-    div1.appendChild(h2);
-    div1.appendChild(p);
+    let title = document.createElement('h2');
+    title.textContent = task.title;
+    let dueDate = document.createElement('p');
+    dueDate.textContent = task.dueDate;
+    div1.appendChild(title);
+    div1.appendChild(dueDate);
     let div2 = document.createElement('div');
     let showBtn = document.createElement("button");
     showBtn.textContent = "show";
@@ -31,6 +31,11 @@ export function createTask(task, project){
     })
     let editBtn = document.createElement("button");
     editBtn.textContent = "edit";
+    editBtn.addEventListener("click", ()=>{
+        let editDialog = document.getElementById("editTask");
+        populate(task, index);
+        editDialog.showModal();
+    });
     let deleteBtn = document.createElement("button");
     deleteBtn.textContent = "delete";
     deleteBtn.addEventListener("click", ()=>{
@@ -41,7 +46,6 @@ export function createTask(task, project){
     div2.appendChild(showBtn);
     div2.appendChild(editBtn);
     div2.appendChild(deleteBtn);
-    //add a function for the btns
 
     taskDiv.appendChild(div1);
     taskDiv.appendChild(div2);
@@ -68,4 +72,32 @@ function createShowTask(task) {
     dialog.appendChild(priority);
     dialog.appendChild(dueDate);
     return dialog
+}
+
+function populate(task, index) {
+    let editBtn = document.getElementById("edit");
+    let title = document.getElementById("eTitle");
+    let description = document.getElementById("eDescription");
+    let note = document.getElementById("eNotes");
+    let dueDate = document.getElementById("eDueDate");
+    let priority = document.getElementById("ePriority");
+    title.value = task.title;
+    description.value = task.description;
+    note.value = task.textContent;
+    dueDate.value = task.dueDate;
+    priority.value = task.priority;
+    editBtn.setAttribute("data-index", index);
+}
+
+export function editTask(task){
+    let title = document.getElementById("eTitle");
+    let description = document.getElementById("eDescription");
+    let note = document.getElementById("eNotes");
+    let dueDate = document.getElementById("eDueDate");
+    let priority = document.getElementById("ePriority");
+    task.title = title.value;
+    task.description = description.value;
+    task.note = note.value;
+    task.dueDate = dueDate.value;
+    task.priority = priority.value;
 }

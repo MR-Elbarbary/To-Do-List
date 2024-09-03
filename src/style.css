@@ -34,6 +34,11 @@
 
 }
 
+input{
+    border-radius: 10px;
+    border-color: var(--bg1);
+}
+
 .heading.h1{
 }
 
@@ -113,6 +118,7 @@ form>button{
     display: flex;
     justify-content: space-between;
     background-color: bisque;
+    border-radius: 15px;
     padding: 0.8rem 0.8rem 0.8rem 0.8rem;
 }
 .task>div{
